@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="项目创建">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/ArticleDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Article.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/FrontBlogApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="初次连接接口测试">
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/ResponseResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/enums/AppHttpCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -91,6 +84,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java\workspace\blog\front-blog\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.domain" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="FrontBlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -121,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685542815982</updated>
       <workItem from="1685542817161" duration="3079000" />
-      <workItem from="1685591928699" duration="3799000" />
+      <workItem from="1685591928699" duration="8374000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -130,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685545433430</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="初次连接接口测试">
+      <created>1685598677750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685598677750</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +164,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目创建" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目创建" />
+    <MESSAGE value="初次连接接口测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="初次连接接口测试" />
   </component>
 </project>
