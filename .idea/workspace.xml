@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="前后端联调">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/constant/SystemConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/HotArticleVo.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="自定义Bean拷贝工具类封装">
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/BeanCopyUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
     </list>
@@ -88,7 +87,20 @@
       <recent name="org.example.domain" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.FrontBlogApplication">
+    <configuration name="BeanCopyUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.utils.BeanCopyUtils" />
+      <module name="cwj_framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FrontBlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="front-blog" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.FrontBlogApplication" />
@@ -105,6 +117,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.FrontBlogApplication" />
+        <item itemvalue="应用程序.BeanCopyUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685542815982</updated>
       <workItem from="1685542817161" duration="3079000" />
-      <workItem from="1685591928699" duration="10210000" />
+      <workItem from="1685591928699" duration="15633000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -140,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685603486209</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="VO优化和字面值转常量处理">
+      <created>1685605494666</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685605494666</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +193,8 @@
     <MESSAGE value="项目创建" />
     <MESSAGE value="初次连接接口测试" />
     <MESSAGE value="前后端联调" />
-    <option name="LAST_COMMIT_MESSAGE" value="前后端联调" />
+    <MESSAGE value="VO优化和字面值转常量处理" />
+    <MESSAGE value="自定义Bean拷贝工具类封装" />
+    <option name="LAST_COMMIT_MESSAGE" value="自定义Bean拷贝工具类封装" />
   </component>
 </project>

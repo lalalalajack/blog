@@ -9,6 +9,7 @@ import org.example.domain.entity.Article;
 import org.example.dao.ArticleDao;
 import org.example.domain.vo.HotArticleVo;
 import org.example.service.ArticleService;
+import org.example.utils.BeanCopyUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -39,16 +40,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //只显示10条（采用分页方式实现） 简单分页模型作为翻页对象（ipage)
         Page<Article> ipage = new Page<>(1,10);
         page(ipage,queryWrapper);
-
         List<Article> articles = ipage.getRecords();
+
         //bean拷贝  原理利用字段名字相同
-       List<HotArticleVo> articleVos = new ArrayList<>();
-        for (Article article : articles) {
-            HotArticleVo hotArticleVo = new HotArticleVo();
-            BeanUtils.copyProperties(article,hotArticleVo);
-            articleVos.add(hotArticleVo);
-        }
-        return ResponseResult.okResult(articleVos);
+//       List<HotArticleVo> articleVos = new ArrayList<>();
+//        for (Article article : articles) {
+//            HotArticleVo hotArticleVo = new HotArticleVo();
+//            BeanUtils.copyProperties(article,hotArticleVo);
+//            articleVos.add(hotArticleVo);
+//        }
+        List<HotArticleVo> vs = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
+
+        return ResponseResult.okResult(vs);
     }
 }
 
