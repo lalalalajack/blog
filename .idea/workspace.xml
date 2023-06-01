@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="初次连接接口测试">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/ResponseResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/enums/AppHttpCodeEnum.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="前后端联调">
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/constant/SystemConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/HotArticleVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +77,9 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java\workspace\blog\front-blog\src\main\resources" />
@@ -117,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685542815982</updated>
       <workItem from="1685542817161" duration="3079000" />
-      <workItem from="1685591928699" duration="8374000" />
+      <workItem from="1685591928699" duration="10210000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -133,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685598677750</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="前后端联调">
+      <created>1685603486209</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685603486209</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +172,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目创建" />
     <MESSAGE value="初次连接接口测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="初次连接接口测试" />
+    <MESSAGE value="前后端联调" />
+    <option name="LAST_COMMIT_MESSAGE" value="前后端联调" />
   </component>
 </project>

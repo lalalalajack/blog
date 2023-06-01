@@ -4,11 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.domain.ResponseResult;
+import org.example.domain.constant.SystemConstants;
 import org.example.domain.entity.Article;
 import org.example.dao.ArticleDao;
+import org.example.domain.vo.HotArticleVo;
 import org.example.service.ArticleService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +33,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     public ResponseResult hotArticleList() {
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         //正式文章 Entity 对象封装操作类
-        queryWrapper.eq(Article::getStatus,0);
+        queryWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);
         //按照浏览量排序
         queryWrapper.orderByDesc(Article::getViewCount);
         //只显示10条（采用分页方式实现） 简单分页模型作为翻页对象（ipage)
@@ -37,8 +41,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         page(ipage,queryWrapper);
 
         List<Article> articles = ipage.getRecords();
-
-        return ResponseResult.okResult(articles);
+        //bean拷贝  原理利用字段名字相同
+       List<HotArticleVo> articleVos = new ArrayList<>();
+        for (Article article : articles) {
+            HotArticleVo hotArticleVo = new HotArticleVo();
+            BeanUtils.copyProperties(article,hotArticleVo);
+            articleVos.add(hotArticleVo);
+        }
+        return ResponseResult.okResult(articleVos);
     }
 }
 
