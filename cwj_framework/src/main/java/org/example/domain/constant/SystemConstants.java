@@ -18,4 +18,10 @@ public class SystemConstants {
      *分类状态：正常
      */
     public static final String STATUS_NORMAL = "0";
+
+    /**
+     *  友链转台： 审核通过
+     */
+    public static final String Link_Status_Normal = "0";
+
 }
