@@ -49,9 +49,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 //            BeanUtils.copyProperties(article,hotArticleVo);
 //            articleVos.add(hotArticleVo);
 //        }
-        List<HotArticleVo> vs = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
+        List<HotArticleVo> hotArticleVos = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
 
-        return ResponseResult.okResult(vs);
+        return ResponseResult.okResult(hotArticleVos);
     }
 }
 

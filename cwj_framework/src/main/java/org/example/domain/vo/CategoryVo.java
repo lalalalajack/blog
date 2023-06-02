@@ -1,19 +1,18 @@
 package org.example.domain.vo;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 热门文章VO
- */
+import java.util.Date;
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class HotArticleVo {
+@NoArgsConstructor
+public class CategoryVo {
     private Long id;
-    //标题
-    private String title;
-    //访问量
-    private Long viewCount;
+    //分类名
+    private String name;
+
 }
