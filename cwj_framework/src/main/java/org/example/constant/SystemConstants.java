@@ -24,4 +24,9 @@ public class SystemConstants {
      */
     public static final String Link_Status_Normal = "0";
 
+    /**
+     * 根评论的id:rootID=-1
+     */
+    public static final String ROOT_COMMENT = "-1";
+
 }
