@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="登录功能实现和认证授权失败处理">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/exception/SystemException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/exception/GlobalExceptionHandler.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="统一异常处理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/BlogLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/BlogLoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/BlogLoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/BlogLoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/BlogLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/BlogLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +149,7 @@
       <workItem from="1685704704470" duration="13000" />
       <workItem from="1685771068165" duration="1725000" />
       <workItem from="1685884534626" duration="3276000" />
-      <workItem from="1685949079988" duration="12862000" />
+      <workItem from="1685949079988" duration="14548000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -219,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685970534015</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="统一异常处理">
+      <created>1685972593360</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685972593360</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +268,8 @@
     <MESSAGE value="文章详情" />
     <MESSAGE value="查询友链实现" />
     <MESSAGE value="登录功能实现和认证授权失败处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录功能实现和认证授权失败处理" />
+    <MESSAGE value="统一异常处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="统一异常处理" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
