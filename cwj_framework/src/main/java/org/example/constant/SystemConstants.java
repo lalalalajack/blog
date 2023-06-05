@@ -1,4 +1,4 @@
-package org.example.domain.constant;
+package org.example.constant;
 
 /**
  * 常量类 以 替代 字面值

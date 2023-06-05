@@ -11,6 +11,7 @@ public class MybatisPlusConfig {
 
     /**
      * 3.4.0之后版本
+     * 开启分页
      * @return
      */
     @Bean

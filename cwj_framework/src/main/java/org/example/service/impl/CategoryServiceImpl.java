@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.dao.CategoryDao;
 import org.example.domain.ResponseResult;
-import org.example.domain.constant.SystemConstants;
+import org.example.constant.SystemConstants;
 import org.example.domain.entity.Article;
 import org.example.domain.entity.Category;
 import org.example.domain.vo.CategoryVo;
@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
