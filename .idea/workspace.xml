@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="查询友链实现">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/FastJsonRedisSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/LoginUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/BlogUserLoginVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/UserInfoVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/security/AccessDeniedHandlerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/security/AuthenticationEntryPointImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/BlogLoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/BlogLoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/WebUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/BlogLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="登录功能实现和认证授权失败处理">
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/exception/SystemException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/MybatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/MybatisPlusConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/constant/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/constant/SystemConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/LinkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/LinkServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/BlogLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/BlogLoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +147,7 @@
       <workItem from="1685704704470" duration="13000" />
       <workItem from="1685771068165" duration="1725000" />
       <workItem from="1685884534626" duration="3276000" />
-      <workItem from="1685949079988" duration="10842000" />
+      <workItem from="1685949079988" duration="12862000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -235,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685695366161</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="登录功能实现和认证授权失败处理">
+      <created>1685970534015</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685970534015</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +258,8 @@
     <MESSAGE value="分页查询文章列表及fastJson配置" />
     <MESSAGE value="文章详情" />
     <MESSAGE value="查询友链实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="查询友链实现" />
+    <MESSAGE value="登录功能实现和认证授权失败处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录功能实现和认证授权失败处理" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
