@@ -1,6 +1,7 @@
 package org.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.example.domain.ResponseResult;
 import org.example.domain.entity.User;
 
 /**
@@ -11,5 +12,6 @@ import org.example.domain.entity.User;
  */
 public interface UserService extends IService<User> {
 
+    ResponseResult userInfo();
 }
 
