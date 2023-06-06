@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="退出登录接口">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/CommentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/CommentVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="查询评论接口（不考虑子评论）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/constant/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/constant/SystemConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/BeanCopyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/BeanCopyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/CommentVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/CommentVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CommentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +148,8 @@
       <workItem from="1685771068165" duration="1725000" />
       <workItem from="1685884534626" duration="3276000" />
       <workItem from="1685949079988" duration="19947000" />
-      <workItem from="1685981449769" duration="533000" />
+      <workItem from="1685981449769" duration="890000" />
+      <workItem from="1686029181969" duration="6198000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -244,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685974294476</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="查询评论接口（不考虑子评论）">
+      <created>1685982334310</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685982334310</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +284,8 @@
     <MESSAGE value="登录功能实现和认证授权失败处理" />
     <MESSAGE value="统一异常处理" />
     <MESSAGE value="退出登录接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="退出登录接口" />
+    <MESSAGE value="查询评论接口（不考虑子评论）" />
+    <option name="LAST_COMMIT_MESSAGE" value="查询评论接口（不考虑子评论）" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
