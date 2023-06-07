@@ -36,5 +36,16 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         UserInfoVo userInfoVo = BeanCopyUtils.copyBean(user, UserInfoVo.class);
         return ResponseResult.okResult(userInfoVo);
     }
+
+    /**
+     * 更新个人信息
+     * @param user 待更新的个人信息
+     * @return code,msg
+     */
+    @Override
+    public ResponseResult updateInfo(User user) {
+        updateById(user);
+        return ResponseResult.okResult();
+    }
 }
 

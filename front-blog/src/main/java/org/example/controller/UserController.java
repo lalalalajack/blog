@@ -1,11 +1,10 @@
 package org.example.controller;
 
 import org.example.domain.ResponseResult;
+import org.example.domain.entity.User;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -22,4 +21,15 @@ public class UserController {
     public ResponseResult userInfo(){
         return userService.userInfo();
     }
+
+    /**
+     * 更新个人信息
+     * @param user 待更新的个人信息
+     * @return code,msg
+     */
+    @PutMapping ("/userInfo")
+    public  ResponseResult updateUserInfo(@RequestBody User user){
+        return userService.updateInfo(user);
+    }
+
 }

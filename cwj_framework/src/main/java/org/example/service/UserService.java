@@ -13,5 +13,7 @@ import org.example.domain.entity.User;
 public interface UserService extends IService<User> {
 
     ResponseResult userInfo();
+
+    ResponseResult updateInfo(User user);
 }
 
