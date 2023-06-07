@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.annotation.SystemLog;
 import org.example.domain.ResponseResult;
 import org.example.domain.entity.User;
 import org.example.service.UserService;
@@ -23,11 +24,12 @@ public class UserController {
     }
 
     /**
-     * 更新个人信息
-     * @param user 待更新的个人信息
+     * 更新用户信息
+     * @param user 待更新的用户信息
      * @return code,msg
      */
     @PutMapping ("/userInfo")
+    @SystemLog(businessName = "更新用户信息")
     public  ResponseResult updateUserInfo(@RequestBody User user){
         return userService.updateInfo(user);
     }
