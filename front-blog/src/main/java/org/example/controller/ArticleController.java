@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.domain.ResponseResult;
+import org.example.domain.entity.User;
 import org.example.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,11 +32,15 @@ public class ArticleController {
         return articleService.articleList(pageNum,pageSize,categoryId);
     }
 
+    /**
+     * 获取文章详情接口
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public ResponseResult getArticleDetail(@PathVariable("id") Long id){
         return articleService.getArticleDetail(id);
     }
-
 
 
 }
