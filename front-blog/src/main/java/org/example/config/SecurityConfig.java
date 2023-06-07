@@ -48,6 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/logout").authenticated()
                 //个人信息接口必须登陆后才能访问
                 .antMatchers("/user/userInfo").authenticated()
+
+                // TODO 前端并未传token，本次选择修改后端为无需登陆（上传头像接口页必须登陆后才能访问）
+//                .antMatchers("/upload").authenticated()
                 // 除上面外的所有请求全部不需要认证即可访问
                 .anyRequest().permitAll();
 

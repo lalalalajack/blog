@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="个人信息查询接口">
-      <change afterPath="$PROJECT_DIR$/front-blog/src/test/java/org/example/OssTest.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="测试OSS上传">
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/UploadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/OssUploadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/PathUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/UploadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/enums/AppHttpCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/enums/AppHttpCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-blog/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/test/java/org/example/OssTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/test/java/org/example/OssTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +71,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/java/workspace/blog/cwj_framework/src/main/java/org/example/utils",
+    "last_opened_file_path": "D:/java/workspace/blog/front-blog/src/test/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,6 +94,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\workspace\blog\front-blog\src\test\java" />
       <recent name="D:\java\workspace\blog\cwj_framework\src\main\java\org\example\utils" />
       <recent name="D:\java\workspace\blog\cwj_framework\src\main\java\org\example\config" />
       <recent name="D:\java\workspace\blog\front-blog\src\main\resources" />
@@ -98,7 +104,7 @@
       <recent name="org.example.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OssTest.test">
+  <component name="RunManager" selected="Spring Boot.FrontBlogApplication">
     <configuration name="BeanCopyUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.utils.BeanCopyUtils" />
       <module name="cwj_framework" />
@@ -156,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OssTest.test" />
         <item itemvalue="Spring Boot.FrontBlogApplication" />
+        <item itemvalue="JUnit.OssTest.test" />
         <item itemvalue="应用程序.JwtUtil" />
         <item itemvalue="应用程序.BeanCopyUtils" />
       </list>
@@ -180,7 +186,8 @@
       <workItem from="1685884534626" duration="3276000" />
       <workItem from="1685949079988" duration="19947000" />
       <workItem from="1685981449769" duration="890000" />
-      <workItem from="1686029181969" duration="21004000" />
+      <workItem from="1686029181969" duration="21175000" />
+      <workItem from="1686110567043" duration="8582000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -301,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686060677248</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="测试OSS上传">
+      <created>1686064898238</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686064898238</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +362,8 @@
     <MESSAGE value="文章评论功能实现（暂定倒叙）" />
     <MESSAGE value="友链评论功能实现（无需token）" />
     <MESSAGE value="个人信息查询接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人信息查询接口" />
+    <MESSAGE value="测试OSS上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试OSS上传" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
