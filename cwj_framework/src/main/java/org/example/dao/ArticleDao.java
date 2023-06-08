@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.example.domain.entity.Article;
 
 /**
@@ -9,6 +10,7 @@ import org.example.domain.entity.Article;
  * @author makejava
  * @since 2023-06-01 13:26:51
  */
+@Mapper
 public interface ArticleDao extends BaseMapper<Article> {
 
 }

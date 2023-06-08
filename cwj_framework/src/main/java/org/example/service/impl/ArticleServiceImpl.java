@@ -15,6 +15,7 @@ import org.example.domain.vo.PageVo;
 import org.example.service.ArticleService;
 import org.example.service.CategoryService;
 import org.example.utils.BeanCopyUtils;
+import org.example.utils.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private RedisCache redisCache;
 
     /**
      * 查询热门文章
@@ -130,6 +134,19 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         // 封装查询结果
         ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
         return ResponseResult.okResult(articleDetailVo);
+    }
+
+
+    /**
+     * 更新浏览量时更新redis数据
+     * @param id 更新的文章id
+     * @return
+     */
+    @Override
+    public ResponseResult updateViewCount(Long id) {
+        //更新redis中对应的id浏览量
+        redisCache.incrementCacheMapValue("article:viewCount",id.toString(),1);
+        return ResponseResult.okResult();
     }
 }
 

@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="用户注册功能实现">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/annotation/SystemLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/aspect/LogAspect.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="AOP实现日志记录">
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/job/TestJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/job/UpdateViewCountJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/runner/TestRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/runner/ViewCountRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/test/java/org/example/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/handler/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/ArticleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/ArticleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/ArticleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/FrontBlogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/FrontBlogApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/ArticleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-blog/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/front-blog/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,36 +70,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "所有位置",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/java/workspace/blog/front-blog/src/test/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "spring.boot",
-    "spring.configuration.checksum": "0f066d1243311529317055318e60263b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;所有位置&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java/workspace/blog/front-blog/src/test/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;spring.boot&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0f066d1243311529317055318e60263b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -192,7 +199,8 @@
       <workItem from="1685981449769" duration="890000" />
       <workItem from="1686029181969" duration="21175000" />
       <workItem from="1686110567043" duration="13378000" />
-      <workItem from="1686141596143" duration="7878000" />
+      <workItem from="1686141596143" duration="8365000" />
+      <workItem from="1686215227964" duration="7146000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -341,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686145524688</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="AOP实现日志记录">
+      <created>1686150936341</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686150936341</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +377,13 @@
                       </list>
                     </value>
                   </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="56" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="63" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="62" />
                 </map>
               </option>
             </State>
@@ -392,7 +414,8 @@
     <MESSAGE value="头像上传接口实现" />
     <MESSAGE value="更新个人信息功能实现" />
     <MESSAGE value="用户注册功能实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户注册功能实现" />
+    <MESSAGE value="AOP实现日志记录" />
+    <option name="LAST_COMMIT_MESSAGE" value="AOP实现日志记录" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

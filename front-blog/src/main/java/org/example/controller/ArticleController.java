@@ -42,5 +42,13 @@ public class ArticleController {
         return articleService.getArticleDetail(id);
     }
 
-
+    /**
+     * 更新浏览量时更新redis数据
+     * @param id 更新的文章id
+     * @return
+     */
+    @PutMapping("/updateViewCount/{id}")
+    public ResponseResult updateViewCount(@PathVariable("id") Long id){
+        return articleService.updateViewCount(id);
+    }
 }
