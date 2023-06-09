@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.example.annotation.SystemLog;
 import org.example.domain.ResponseResult;
 import org.example.domain.entity.User;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户",description = "用户相关接口")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -19,6 +22,7 @@ public class UserController {
      * @return userInfoVo
      */
     @GetMapping("/userInfo")
+    @ApiOperation(value = "获取个人中心的用户信息",notes = "")
     public ResponseResult userInfo(){
         return userService.userInfo();
     }
@@ -30,6 +34,7 @@ public class UserController {
      */
     @PutMapping ("/userInfo")
     @SystemLog(businessName = "更新用户信息")
+    @ApiOperation(value = "更新用户信息",notes = "")
     public  ResponseResult updateUserInfo(@RequestBody User user){
         return userService.updateInfo(user);
     }
@@ -41,6 +46,7 @@ public class UserController {
      * @return code,msg
      */
     @PostMapping("/register")
+    @ApiOperation(value = "用户注册",notes = "")
     public ResponseResult register(@RequestBody User user){
         return userService.register(user);
     }

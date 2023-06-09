@@ -4,9 +4,9 @@ import org.example.domain.ResponseResult;
 import org.example.domain.dto.UserDto;
 
 /**
- * 前台用户登陆业务
+ * 后台用户登陆业务
  */
-public interface BlogLoginService {
+public interface LoginService {
     ResponseResult login(UserDto userDto);
 
     ResponseResult logout();
