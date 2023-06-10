@@ -15,7 +15,7 @@ public class SystemConstants {
     public static final int  ARTICLE_STATUS_NORMAL = 0;
 
     /**
-     *分类/菜单状态：正常
+     *分类/菜单/评论状态：正常
      */
     public static final String STATUS_NORMAL = "0";
 
