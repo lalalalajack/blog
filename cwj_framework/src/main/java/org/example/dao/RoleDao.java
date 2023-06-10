@@ -13,5 +13,7 @@ import java.util.List;
  */
 public interface RoleDao extends BaseMapper<Role> {
     List<String> selectRoleKeyByUserId(Long id);
+
+    List<Long> selectRoleIdByUserId(Long userId);
 }
 

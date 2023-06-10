@@ -4,19 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="【博客后台】菜单管理CRUD">
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/org/example/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/RoleMenuDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/dto/ChangeRoleStatusDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/RoleMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/RoleMenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/RoleMenuServiceImpl.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="【博客后台】角色管理CRUD">
+      <change afterPath="$PROJECT_DIR$/admin/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/UserRoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/dto/ChangeUserStatusDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/UserInfoAndRoleIdsVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/UserVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/UserRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/UserRoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/RoleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/resources/mapper/RoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/resources/mapper/RoleDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +111,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.domain.vo" />
       <recent name="org.example.domain.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -120,11 +126,11 @@
       <recent name="D:\java\workspace\blog\admin\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.domain.vo" />
       <recent name="org.example.controller" />
       <recent name="org.example.service.impl" />
       <recent name="org.example.service" />
       <recent name="org.example.config" />
-      <recent name="org.example.domain" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AdminBlogApplication">
@@ -230,7 +236,7 @@
       <workItem from="1686278119597" duration="21036000" />
       <workItem from="1686323967913" duration="552000" />
       <workItem from="1686324552748" duration="894000" />
-      <workItem from="1686370849434" duration="31651000" />
+      <workItem from="1686370849434" duration="35232000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -463,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686408137527</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="【博客后台】角色管理CRUD">
+      <created>1686411403165</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1686411403165</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="登录功能实现和认证授权失败处理" />
     <MESSAGE value="统一异常处理" />
     <MESSAGE value="退出登录接口" />
     <MESSAGE value="查询评论接口（不考虑子评论）" />
@@ -525,7 +537,8 @@
     <MESSAGE value="【博客后台】分类管理CRUD" />
     <MESSAGE value="【博客后台】友链管理CRUD" />
     <MESSAGE value="【博客后台】菜单管理CRUD" />
-    <option name="LAST_COMMIT_MESSAGE" value="【博客后台】菜单管理CRUD" />
+    <MESSAGE value="【博客后台】角色管理CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="【博客后台】角色管理CRUD" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

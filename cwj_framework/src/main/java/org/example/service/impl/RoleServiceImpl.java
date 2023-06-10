@@ -90,6 +90,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleS
         return  ResponseResult.okResult(pageVo);
     }
 
+    @Override
+    public List<Long> selectRoleIdByUserId(Long userId) {
+        return getBaseMapper().selectRoleIdByUserId(userId);
+    }
+
     private void insertRoleMenu(Role role) {
         //从role中获取出映射的menuIds，并为其创建每一个roleMenu对象
         List<RoleMenu> roleMenuList = Arrays.stream(role.getMenuIds())
