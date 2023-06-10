@@ -15,7 +15,7 @@ public class SystemConstants {
     public static final int  ARTICLE_STATUS_NORMAL = 0;
 
     /**
-     *分类状态：正常
+     *分类/菜单状态：正常
      */
     public static final String STATUS_NORMAL = "0";
 
@@ -36,5 +36,15 @@ public class SystemConstants {
      * 评论类型为：友联评论
      */
     public static final String LINK_COMMENT = "1";
+
+    /**
+     * Menu类型为：菜单
+     */
+    public static final String MENU = "C";
+
+    /**
+     * Menu类型为：按钮
+     */
+    public static final String BUTTON = "F";
 
 }

@@ -26,7 +26,7 @@ public class SecurityUtils {
 
     public static Boolean isAdmin() {
         Long id = getLoginUser().getUser().getId();
-        return id != null && id == 1L;
+        return id != null && id.equals(1L);
     }
 
     public static Long getUserId() {
