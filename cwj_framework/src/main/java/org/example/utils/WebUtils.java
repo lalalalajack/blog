@@ -28,11 +28,20 @@ public class WebUtils
         }
     }
 
+    /**
+     *
+     * 设置响应头
+     * 供Excel导出使用
+     * @param filename
+     * @param response
+     * @throws UnsupportedEncodingException
+     */
     public static void setDownLoadHeader(String filename, HttpServletResponse response) throws UnsupportedEncodingException {
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         response.setCharacterEncoding("utf-8");
         String fname= URLEncoder.encode(filename,"UTF-8").replaceAll("\\+", "%20");
         response.setHeader("Content-disposition","attachment; filename="+fname);
     }
+
 
 }
