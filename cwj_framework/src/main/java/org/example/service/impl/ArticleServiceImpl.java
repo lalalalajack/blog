@@ -8,6 +8,7 @@ import org.example.domain.constant.SystemConstants;
 import org.example.domain.entity.Article;
 import org.example.dao.ArticleDao;
 import org.example.domain.entity.Category;
+import org.example.domain.vo.ArticleDetailVo;
 import org.example.domain.vo.ArticleListVo;
 import org.example.domain.vo.HotArticleVo;
 import org.example.domain.vo.PageVo;
@@ -108,6 +109,28 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 
         PageVo pageVo = new PageVo(articleListVos,iPage.getTotal());
         return ResponseResult.okResult(pageVo);
+    }
+
+    /**
+     * 文章详情 在文章列表点击阅读全文时能够跳转到文章详情页面，可以让用户阅读文章正文。
+     * @param id 文章id
+     * @return
+     */
+    @Override
+    public ResponseResult getArticleDetail(Long id) {
+        //根据id查询文章
+        Article article = getById(id);
+//        //转换成VO
+//        ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
+        //查询文章结果，附加分类名
+        Long categoryId = article.getCategoryId();
+        Category category = categoryService.getById(categoryId);
+        if(category!=null){
+            article.setCategoryName(category.getName());
+        }
+        // 封装查询结果
+        ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
+        return ResponseResult.okResult(articleDetailVo);
     }
 }
 
