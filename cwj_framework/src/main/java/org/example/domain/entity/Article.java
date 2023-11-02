@@ -2,11 +2,13 @@ package org.example.domain.entity;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 文章表(Article)表实体类
@@ -19,6 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("sg_article")
+@Accessors(chain = true)
 public class Article {
 
     @TableId
@@ -31,6 +34,9 @@ public class Article {
     private String summary;
     //所属分类id
     private Long categoryId;
+    @TableField(exist = false)
+    //所属分类id
+    private String categoryName;
     //缩略图
     private String thumbnail;
     //是否置顶（0否，1是）

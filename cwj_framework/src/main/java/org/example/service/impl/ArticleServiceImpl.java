@@ -7,14 +7,21 @@ import org.example.domain.ResponseResult;
 import org.example.domain.constant.SystemConstants;
 import org.example.domain.entity.Article;
 import org.example.dao.ArticleDao;
+import org.example.domain.entity.Category;
+import org.example.domain.vo.ArticleListVo;
 import org.example.domain.vo.HotArticleVo;
+import org.example.domain.vo.PageVo;
 import org.example.service.ArticleService;
+import org.example.service.CategoryService;
 import org.example.utils.BeanCopyUtils;
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 文章表(Article)表服务实现类
@@ -24,6 +31,9 @@ import java.util.List;
  */
 @Service("articleService")
 public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> implements ArticleService {
+
+    @Autowired
+    private CategoryService categoryService;
 
     /**
      * 查询热门文章
@@ -38,9 +48,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //按照浏览量排序
         queryWrapper.orderByDesc(Article::getViewCount);
         //只显示10条（采用分页方式实现） 简单分页模型作为翻页对象（ipage)
-        Page<Article> ipage = new Page<>(1,10);
-        page(ipage,queryWrapper);
-        List<Article> articles = ipage.getRecords();
+        Page<Article> iPage = new Page<>(1,10);
+        page(iPage,queryWrapper);
+        List<Article> articles = iPage.getRecords();
 
         //bean拷贝  原理利用字段名字相同
 //       List<HotArticleVo> articleVos = new ArrayList<>();
@@ -52,6 +62,52 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         List<HotArticleVo> hotArticleVos = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
 
         return ResponseResult.okResult(hotArticleVos);
+    }
+
+    /**
+     * 分页查询文章列表：在首页和分类页面都需要查询文章列表。
+     * 首页：查询所有的文章
+     * 分类页面：查询对应分类下的文章
+     * 只能查询正式发布的文章，置顶的文章要显示在最前面
+     * @param pageNum 当前页码
+     * @param pageSize 页面大小
+     * @param categoryId 分类id
+     * @return pageVo 对象
+     */
+    @Override
+    public ResponseResult articleList(Integer pageNum, Integer pageSize, Long categoryId) {
+        //查询条件
+        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
+        //如果有categoryId，就要进行查询
+        queryWrapper.eq(Objects.nonNull(categoryId)&&categoryId>0,Article::getCategoryId,categoryId);
+        //状态正式发布
+        queryWrapper.eq(Article::getStatus,SystemConstants.STATUS_NORMAL);
+        //置顶文章显示最前
+        queryWrapper.orderByDesc(Article::getIsTop);
+
+        //分页查询
+        Page<Article> iPage = new Page<>(pageNum,pageSize);
+        //执行查询
+        page(iPage,queryWrapper);
+
+        List<Article> articles = iPage.getRecords();
+        //查询categoryName
+        //方法一 categoryId去查询categoryName 进行设置
+//        for (Article article : articles) {
+//            Category category = categoryService.getById(article.getCategoryId());
+//            article.setCategoryName(category.getName());
+//        }
+        //方法二：stream流 获取分类id,查询分类信息，获取分类名称,把分类名称设置给article
+         articles.stream()
+                .map(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName()))
+                .collect(Collectors.toList());
+
+
+        //封装查询结果
+        List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(iPage.getRecords(), ArticleListVo.class);
+
+        PageVo pageVo = new PageVo(articleListVos,iPage.getTotal());
+        return ResponseResult.okResult(pageVo);
     }
 }
 
