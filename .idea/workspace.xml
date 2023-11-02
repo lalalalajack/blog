@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="自定义Bean拷贝工具类封装">
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/BeanCopyUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/CategoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/CategoryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-blog/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/constant/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/constant/SystemConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/HotArticleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/HotArticleVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/ArticleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,35 +55,35 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/java/workspace/blog/cwj_framework/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.sjhy.plugin.ui.TemplateSettingForm",
-    "spring.configuration.checksum": "e24337e7d6665f38d2261f90c255f378",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java/workspace/blog/cwj_framework/src/main/java/org/example&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.sjhy.plugin.ui.TemplateSettingForm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0f066d1243311529317055318e60263b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -130,7 +138,9 @@
       <option name="presentableId" value="Default" />
       <updated>1685542815982</updated>
       <workItem from="1685542817161" duration="3079000" />
-      <workItem from="1685591928699" duration="15633000" />
+      <workItem from="1685591928699" duration="19573000" />
+      <workItem from="1685631964457" duration="2495000" />
+      <workItem from="1685665551826" duration="994000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -160,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685605494666</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="自定义Bean拷贝工具类封装">
+      <created>1685612973997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685612973997</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -13,4 +13,9 @@ public class SystemConstants {
      * 文章状态：正常发布
      */
     public static final int  ARTICLE_STATUS_NORMAL = 0;
+
+    /**
+     *分类状态：正常
+     */
+    public static final String STATUS_NORMAL = "0";
 }
