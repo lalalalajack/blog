@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 自定义Bean拷贝方法
+ */
 public class BeanCopyUtils {
 
     /**

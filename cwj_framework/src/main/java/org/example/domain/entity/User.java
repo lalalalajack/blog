@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  * 用户表(User)表实体类
  *
  * @author makejava
- * @since 2023-06-04 23:04:22
+ * @since 2023-06-05 23:49:46
  */
 @SuppressWarnings("serial")
 @Data
@@ -20,7 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName("sys_user")
 public class User {
-    //主键@TableId
+    //主键
+    @TableId
     private Long id;
 
     //用户名
