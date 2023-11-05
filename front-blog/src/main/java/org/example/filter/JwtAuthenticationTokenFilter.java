@@ -24,6 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * jwt认证过滤器
+ * 登录校验过滤器
+ */
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
@@ -35,7 +39,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         //获取请求头中的token
         String token = request.getHeader("token");
         if(!StringUtils.hasText(token)){
-            //说明该接口是不需要登录就可以访问 直接放行
+            //说明该接口是不需要登录就可以访问（或者尚未登录） 直接放行
             filterChain.doFilter(request,response);
             return;
         }

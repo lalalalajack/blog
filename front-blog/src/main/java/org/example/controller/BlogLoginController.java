@@ -17,12 +17,26 @@ public class BlogLoginController {
     @Autowired
     private BlogLoginService blogLoginService;
 
+    /**
+     * 登录接口
+     * @param userDto
+     * @return
+     */
     @PostMapping("/login")
     public ResponseResult login(@RequestBody UserDto userDto){
-        if(StringUtils.hasText(userDto.getUserName())){
+        if(!StringUtils.hasText(userDto.getUserName())){
             //提示 必须要传用户名
             throw new SystemException(AppHttpCodeEnum.REQUIRE_USERNAME);
         }
         return blogLoginService.login(userDto);
+    }
+
+    /**
+     * 登出接口
+     * @return
+     */
+    @PostMapping("/logout")
+    public ResponseResult logout(){
+        return blogLoginService.logout();
     }
 }
