@@ -9,11 +9,14 @@ import org.example.domain.ResponseResult;
 import org.example.domain.entity.Comment;
 import org.example.domain.vo.CommentVo;
 import org.example.domain.vo.PageVo;
+import org.example.enums.AppHttpCodeEnum;
+import org.example.exception.SystemException;
 import org.example.service.CommentService;
 import org.example.service.UserService;
 import org.example.utils.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -44,6 +47,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
         queryWrapper.eq(Comment::getArticleId,articleId);
         //根评论的rootId为-1
         queryWrapper.eq(Comment::getRootId, SystemConstants.ROOT_COMMENT);
+        queryWrapper.orderByDesc(Comment::getCreateTime);
 
         //分页查询
         //包装分页模型
@@ -69,6 +73,23 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
 
 
         return ResponseResult.okResult(new PageVo(commentVos,iPage.getTotal()));
+    }
+
+    /**
+     * 发表评论
+     *
+     * @param comment 评论内容
+     * @return
+     */
+    @Override
+    public ResponseResult addComment(Comment comment) {
+        //评论内容不为空
+        //TODO转化为在DTO类中校验
+        if(!StringUtils.hasText(comment.getContent())){
+            throw new SystemException(AppHttpCodeEnum.CONTENT_NOT_NULL);
+        }
+        save(comment);
+        return ResponseResult.okResult();
     }
 
     /**
@@ -110,7 +131,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
     private List<CommentVo> getChildren(Long id){
         LambdaQueryWrapper<Comment> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Comment::getRootId,id);
-        queryWrapper.orderByAsc(Comment::getCreateTime);
+        queryWrapper.orderByDesc(Comment::getCreateTime);
         List<Comment> comments = list(queryWrapper);
         return toCommentVoList(comments);
     }
