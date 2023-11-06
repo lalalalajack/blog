@@ -34,7 +34,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
      * @param articleId 文章id
      * @param pageNum   评论分页 当前页
      * @param pageSize  评论分页 页大小
-     * @return
+     * @return PageVo(commentVos,iPage.getTotal())
      */
     @Override
     public ResponseResult commentList(Long articleId, Integer pageNum, Integer pageSize) {
@@ -63,14 +63,18 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
             commentVo.setChildren(children);
         }
 
+        //stream流写法
+//        commentVos.stream()
+//                .map(commentVo -> commentVo.setChildren(getChildren(commentVo.getId())));
+
 
         return ResponseResult.okResult(new PageVo(commentVos,iPage.getTotal()));
     }
 
     /**
      * 将CommentPOJO封装成CommentVo
-     * @param list
-     * @return
+     * @param list Comment
+     * @return CommentVo
      */
     private List<CommentVo> toCommentVoList(List<Comment> list){
         List<CommentVo> commentVos = BeanCopyUtils.copyBeanList(list, CommentVo.class);
@@ -86,6 +90,14 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
                 commentVo.setToCommentUserName(nickName1);
             }
         }
+//        commentVos = commentVos.stream()
+//                .peek(commentVo -> {
+//                    commentVo.setUsername(userService.getById(commentVo.getCreateBy()).getNickName());
+//                    if (commentVo.getToCommentId() != -1) {
+//                        commentVo.setToCommentUserName(userService.getById(commentVo.getToCommentId()).getNickName());
+//                    }
+//                })
+//                .collect(Collectors.toList());
         return commentVos;
     }
 
@@ -93,14 +105,14 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
     /**
      * 根据根评论的id查询所对应的子评论的集合
      * @param id 根评论的id
-     * @return
+     * @return 封装好的CommentVo
      */
     private List<CommentVo> getChildren(Long id){
         LambdaQueryWrapper<Comment> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Comment::getRootId,id);
         queryWrapper.orderByAsc(Comment::getCreateTime);
         List<Comment> comments = list(queryWrapper);
-
+        return toCommentVoList(comments);
     }
 }
 
