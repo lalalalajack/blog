@@ -34,19 +34,26 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
 
     /**
      * 查询评论 （查询根评论/即rootId=-1)
-     * @param articleId 文章id
-     * @param pageNum   评论分页 当前页
-     * @param pageSize  评论分页 页大小
-     * @return PageVo(commentVos,iPage.getTotal())
+     *
+     * @param commentType
+     * @param articleId   文章id
+     * @param pageNum     评论分页 当前页
+     * @param pageSize    评论分页 页大小
+     * @return PageVo(commentVos, iPage.getTotal ())
      */
     @Override
-    public ResponseResult commentList(Long articleId, Integer pageNum, Integer pageSize) {
+    public ResponseResult commentList(String commentType, Long articleId, Integer pageNum, Integer pageSize) {
         //查询对应文章的根评论
         //根据articleId查询对应文章
         LambdaQueryWrapper<Comment> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Comment::getArticleId,articleId);
+        queryWrapper.eq(SystemConstants.ARTICLE_COMMENT.equals(commentType),Comment::getArticleId,articleId);
         //根评论的rootId为-1
         queryWrapper.eq(Comment::getRootId, SystemConstants.ROOT_COMMENT);
+
+        //评论类型
+        queryWrapper.eq(Comment::getType,commentType);
+
+        //排序
         queryWrapper.orderByDesc(Comment::getCreateTime);
 
         //分页查询
