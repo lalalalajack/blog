@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * 自定义的全局异常处理类
  * @ControllerAdvice 异常处理 本质控制器增强
  * @ResponseBody 将方法返回值放入响应体中
- * @RestControllerAdvice = @ControllerAdvice+@ResponseBod
+ * @RestControllerAdvice = @ControllerAdvice+@ResponseBody
  *
  */
 @RestControllerAdvice
