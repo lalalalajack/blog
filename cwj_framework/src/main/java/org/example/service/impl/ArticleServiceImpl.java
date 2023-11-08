@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -55,6 +56,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         Page<Article> iPage = new Page<>(1,10);
         page(iPage,queryWrapper);
         List<Article> articles = iPage.getRecords();
+
+        //从redis中获取viewCount
+        for (Article article : articles) {
+            Integer viewCount = redisCache.getCacheMapValue("article:viewCount", article.getId().toString());
+            article.setViewCount(Long.valueOf(viewCount));
+        }
 
         //bean拷贝  原理利用字段名字相同
 //       List<HotArticleVo> articleVos = new ArrayList<>();
@@ -95,6 +102,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         page(iPage,queryWrapper);
 
         List<Article> articles = iPage.getRecords();
+
+        //从redis中获取viewCount
+        for (Article article : articles) {
+            Integer viewCount = redisCache.getCacheMapValue("article:viewCount", article.getId().toString());
+            article.setViewCount(Long.valueOf(viewCount));
+        }
+
+
         //查询categoryName
         //方法一 categoryId去查询categoryName 进行设置
 //        for (Article article : articles) {
@@ -117,12 +132,15 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     /**
      * 文章详情 在文章列表点击阅读全文时能够跳转到文章详情页面，可以让用户阅读文章正文。
      * @param id 文章id
-     * @return
+     * @return ArticleDetailVo对象
      */
     @Override
     public ResponseResult getArticleDetail(Long id) {
         //根据id查询文章
         Article article = getById(id);
+        //从redis中获取viewCount
+        Integer viewCount = redisCache.getCacheMapValue("article:viewCount", id.toString());
+        article.setViewCount(Long.valueOf(viewCount));
 //        //转换成VO
 //        ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
         //查询文章结果，附加分类名
