@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new RuntimeException("用户不存在");
         }
         //返回用户信息
-        //TODO 查询权限信息封装
+        //TODO 根据用户查询权限信息 添加到LoginUser中
         return new LoginUser(user);
     }
 }

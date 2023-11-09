@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.constant.SystemConstants;
 import org.example.dao.CommentDao;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddCommentDto;
 import org.example.domain.entity.Comment;
 import org.example.domain.vo.CommentVo;
 import org.example.domain.vo.PageVo;
@@ -85,11 +86,13 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
     /**
      * 发表评论
      *
-     * @param comment 评论内容
+     * @param addCommentDto 评论内容
      * @return
      */
     @Override
-    public ResponseResult addComment(Comment comment) {
+    public ResponseResult addComment(AddCommentDto addCommentDto) {
+        //转换类型
+        Comment comment = BeanCopyUtils.copyBean(addCommentDto, Comment.class);
         //评论内容不为空
         //TODO转化为在DTO类中校验
         if(!StringUtils.hasText(comment.getContent())){
