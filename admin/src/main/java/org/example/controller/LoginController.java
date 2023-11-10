@@ -68,4 +68,14 @@ public class LoginController {
     public ResponseResult<RoutersVo> getRouters(){
         return loginService.getRouters();
     }
+
+    /**
+     * 退出登陆（需要token头）
+     * @return
+     */
+    @PostMapping("/user/logout")
+    @ApiOperation(value = "退出登陆",notes = "退出登录")
+    public ResponseResult logout(){
+        return loginService.logout();
+    }
 }

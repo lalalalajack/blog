@@ -73,11 +73,8 @@ public class SystemLoginServiceImpl implements LoginService {
      */
     @Override
     public ResponseResult logout() {
-        //获取token，获取loginUser
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-       LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-        //获取userId
-        Long userId = loginUser.getUser().getId();
+        //获取当前登录的用户id
+        Long userId = SecurityUtils.getUserId();
         //删除redis中的用户信息
         redisCache.deleteObject("login:"+userId);
         return ResponseResult.okResult();

@@ -4,31 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="【博客后台】登陆功能以及后台Jwt认证过滤器的实现">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/MenuDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/dao/RoleDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/AdminUserInfoVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/MenuVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/domain/vo/RoutersVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/MenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/MenuServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/resources/mapper/MenuDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cwj_framework/src/main/resources/mapper/RoleDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/org/example/AdminBlogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/org/example/AdminBlogApplication.java" afterDir="false" />
+    <list default="true" id="e5e94bdd-e307-458f-b579-4aedbd964d9c" name="变更" comment="【博客后台】权限控制及动态路由">
       <change beforePath="$PROJECT_DIR$/admin/src/main/java/org/example/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/org/example/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/constant/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/constant/SystemConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/SystemLoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/service/impl/SystemLoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/cwj_framework/src/main/java/org/example/utils/SecurityUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cwj_framework/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +216,7 @@
       <workItem from="1686278119597" duration="21036000" />
       <workItem from="1686323967913" duration="552000" />
       <workItem from="1686324552748" duration="894000" />
-      <workItem from="1686370849434" duration="9795000" />
+      <workItem from="1686370849434" duration="12162000" />
     </task>
     <task id="LOCAL-00001" summary="项目创建">
       <created>1685545433430</created>
@@ -415,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686292030144</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="【博客后台】权限控制及动态路由">
+      <created>1686387373077</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686387373077</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="初次连接接口测试" />
     <MESSAGE value="前后端联调" />
     <MESSAGE value="VO优化和字面值转常量处理" />
     <MESSAGE value="自定义Bean拷贝工具类封装" />
@@ -477,7 +461,8 @@
     <MESSAGE value="修改浏览量的获取从数据库为redis" />
     <MESSAGE value="swagger配置" />
     <MESSAGE value="【博客后台】登陆功能以及后台Jwt认证过滤器的实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="【博客后台】登陆功能以及后台Jwt认证过滤器的实现" />
+    <MESSAGE value="【博客后台】权限控制及动态路由" />
+    <option name="LAST_COMMIT_MESSAGE" value="【博客后台】权限控制及动态路由" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
