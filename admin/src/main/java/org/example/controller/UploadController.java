@@ -6,29 +6,31 @@ import org.example.domain.ResponseResult;
 import org.example.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
 @RestController
-@Api(tags = "上传",description = "上传图片接口")
+@Api(tags = "上传",description = "上传相关接口")
 public class UploadController {
 
     @Autowired
     private UploadService uploadService;
 
     /**
-     * 头像上传
-     * @param img 图片
+     * 上传图片接口
+     * @param multipartFile
      * @return
      */
     @PostMapping("/upload")
     @ApiOperation(value = "上传图片",notes = "")
-    public ResponseResult uploadImg(MultipartFile img) {
+    public ResponseResult uploadImg(@RequestParam("img") MultipartFile multipartFile) {
         try {
-            return uploadService.uploadImg(img);
+            return uploadService.uploadImg(multipartFile);
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException("文件上传上传失败");
         }
     }

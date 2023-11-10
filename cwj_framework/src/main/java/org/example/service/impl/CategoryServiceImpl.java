@@ -55,5 +55,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
 
         return ResponseResult.okResult(categoryVos);
     }
+
+    /**
+     * 查询所有分类接口
+     * @return
+     */
+    @Override
+    public List<CategoryVo> listAllCategory() {
+        LambdaQueryWrapper<Category> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Category::getStatus, SystemConstants.STATUS_NORMAL);
+        List<Category> list = list(wrapper);
+        List<CategoryVo> categoryVos = BeanCopyUtils.copyBeanList(list, CategoryVo.class);
+        return categoryVos;
+    }
 }
 

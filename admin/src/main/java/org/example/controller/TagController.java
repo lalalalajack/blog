@@ -99,7 +99,7 @@ public class TagController {
     }
 
     /**
-     * 展示所有Tag标签
+     * 查询所有Tag标签
      * @return
      */
     @GetMapping("/listAllTag")

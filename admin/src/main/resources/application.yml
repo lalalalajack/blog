@@ -20,3 +20,10 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+
+oss:
+  accessKey: yAqhmZjsYgV3uo7kTQStRglGXkedaWIBqwbe9vzM
+  secretKey: i5jAOiFrvkbyC5sk6dotxc7n7wgGwSiKKY8ulZiu
+  bucket: cwj-blog
+  # 外链域名可能过期
+  testDomain: http://rvu53flxl.hn-bkt.clouddn.com/
