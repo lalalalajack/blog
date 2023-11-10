@@ -6,14 +6,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.domain.ResponseResult;
 import org.example.constant.SystemConstants;
 import org.example.domain.dto.AddArticleDto;
+import org.example.domain.dto.ArticleDto;
 import org.example.domain.entity.Article;
 import org.example.dao.ArticleDao;
 import org.example.domain.entity.ArticleTag;
 import org.example.domain.entity.Category;
-import org.example.domain.vo.ArticleDetailVo;
-import org.example.domain.vo.ArticleListVo;
-import org.example.domain.vo.HotArticleVo;
-import org.example.domain.vo.PageVo;
+import org.example.domain.vo.*;
 import org.example.service.ArticleService;
 import org.example.service.ArticleTagService;
 import org.example.service.CategoryService;
@@ -21,10 +19,9 @@ import org.example.utils.BeanCopyUtils;
 import org.example.utils.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -49,6 +46,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     /**
      * 查询热门文章
      * 需要查询浏览量最高的前10篇文章的信息
+     *
      * @return 展示文章标题和浏览量以及链接
      */
     @Override
@@ -59,8 +57,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //按照浏览量排序
         queryWrapper.orderByDesc(Article::getViewCount);
         //只显示10条（采用分页方式实现） 简单分页模型作为翻页对象（ipage)
-        Page<Article> iPage = new Page<>(1,10);
-        page(iPage,queryWrapper);
+        Page<Article> iPage = new Page<>(1, 10);
+        page(iPage, queryWrapper);
         List<Article> articles = iPage.getRecords();
 
         //从redis中获取viewCount
@@ -86,8 +84,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
      * 首页：查询所有的文章
      * 分类页面：查询对应分类下的文章
      * 只能查询正式发布的文章，置顶的文章要显示在最前面
-     * @param pageNum 当前页码
-     * @param pageSize 页面大小
+     *
+     * @param pageNum    当前页码
+     * @param pageSize   页面大小
      * @param categoryId 分类id
      * @return pageVo 对象
      */
@@ -96,16 +95,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //查询条件
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         //如果有categoryId，就要进行查询
-        queryWrapper.eq(Objects.nonNull(categoryId)&&categoryId>0,Article::getCategoryId,categoryId);
+        queryWrapper.eq(Objects.nonNull(categoryId) && categoryId > 0, Article::getCategoryId, categoryId);
         //状态正式发布
-        queryWrapper.eq(Article::getStatus,SystemConstants.STATUS_NORMAL);
+        queryWrapper.eq(Article::getStatus, SystemConstants.STATUS_NORMAL);
         //置顶文章显示最前
         queryWrapper.orderByDesc(Article::getIsTop);
 
         //分页查询
-        Page<Article> iPage = new Page<>(pageNum,pageSize);
+        Page<Article> iPage = new Page<>(pageNum, pageSize);
         //执行查询
-        page(iPage,queryWrapper);
+        page(iPage, queryWrapper);
 
         List<Article> articles = iPage.getRecords();
 
@@ -123,7 +122,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 //            article.setCategoryName(category.getName());
 //        }
         //方法二：stream流 获取分类id,查询分类信息，获取分类名称,把分类名称设置给article
-         articles.stream()
+        articles.stream()
                 .map(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName()))
                 .collect(Collectors.toList());
 
@@ -131,12 +130,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //封装查询结果
         List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(iPage.getRecords(), ArticleListVo.class);
 
-        PageVo pageVo = new PageVo(articleListVos,iPage.getTotal());
+        PageVo pageVo = new PageVo(articleListVos, iPage.getTotal());
         return ResponseResult.okResult(pageVo);
     }
 
     /**
      * 文章详情 在文章列表点击阅读全文时能够跳转到文章详情页面，可以让用户阅读文章正文。
+     *
      * @param id 文章id
      * @return ArticleDetailVo对象
      */
@@ -152,7 +152,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         //查询文章结果，附加分类名
         Long categoryId = article.getCategoryId();
         Category category = categoryService.getById(categoryId);
-        if(category!=null){
+        if (category != null) {
             article.setCategoryName(category.getName());
         }
         // 封装查询结果
@@ -163,18 +163,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 
     /**
      * 更新浏览量时更新redis数据
+     *
      * @param id 更新的文章id
      * @return
      */
     @Override
     public ResponseResult updateViewCount(Long id) {
         //更新redis中对应的id浏览量
-        redisCache.incrementCacheMapValue("article:viewCount",id.toString(),1);
+        redisCache.incrementCacheMapValue("article:viewCount", id.toString(), 1);
         return ResponseResult.okResult();
     }
 
     /**
      * 新增博文
+     *
      * @param articleDto
      * @return
      */
@@ -192,5 +194,65 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         articleTagService.saveBatch(articleTags);
         return null;
     }
+
+    @Override
+    public PageVo selectArticlePage(Article article, Integer pageNum, Integer pageSize) {
+        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper();
+
+        queryWrapper.like(StringUtils.hasText(article.getTitle()), Article::getTitle, article.getTitle());
+        queryWrapper.like(StringUtils.hasText(article.getSummary()), Article::getSummary, article.getSummary());
+
+        Page<Article> iPage = new Page<>(pageNum, pageSize);
+        page(iPage, queryWrapper);
+
+        //转换成VO
+        List<Article> articles = iPage.getRecords();
+
+        // TODO 没有写VO的转换 应该转换完在设置到最后的pageVo中
+
+        PageVo pageVo = new PageVo();
+        pageVo.setTotal(iPage.getTotal());
+        pageVo.setRows(articles);
+        return pageVo;
+    }
+
+    @Override
+    public ArticleVo getInfo(Long id) {
+        Article article = getById(id);
+        //获取关联标签
+        LambdaQueryWrapper<ArticleTag> articleTagLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        articleTagLambdaQueryWrapper.eq(ArticleTag::getArticleId, article.getId());
+        List<ArticleTag> articleTags = articleTagService.list(articleTagLambdaQueryWrapper);
+
+        List<Long> tags = articleTags.stream()
+                .map(ArticleTag::getTagId)
+                .collect(Collectors.toList());
+
+        //封装成Vo
+        ArticleVo articleVo = BeanCopyUtils.copyBean(article, ArticleVo.class);
+        articleVo.setTags(tags);
+        return articleVo;
+    }
+
+    @Override
+    public void edit(ArticleDto articleDto) {
+        Article article = BeanCopyUtils.copyBean(articleDto, Article.class);
+
+        //更新博客信息
+        updateById(article);
+
+        //删除原有的 标签和博客的关联
+        LambdaQueryWrapper<ArticleTag> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ArticleTag::getArticleId,article.getId());
+        articleTagService.remove(queryWrapper);
+
+        //添加新的博客和标签的关联信息
+        List<ArticleTag> articleTags = articleDto.getTags().stream()
+                .map(tagId -> new ArticleTag(articleDto.getId(), tagId))
+                .collect(Collectors.toList());
+        articleTagService.saveBatch(articleTags);
+    }
+
+
 }
 
