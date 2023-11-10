@@ -70,6 +70,11 @@ public class ArticleController {
         return ResponseResult.okResult();
     }
 
+    /**
+     * 删除文章接口
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     public ResponseResult delete(@PathVariable Long id) {
         articleService.removeById(id);
