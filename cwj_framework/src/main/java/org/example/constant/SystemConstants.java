@@ -47,4 +47,9 @@ public class SystemConstants {
      */
     public static final String BUTTON = "F";
 
+    /**
+     * 后台用户
+     */
+    public static final String ADMIN = "1";
+
 }
