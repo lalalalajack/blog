@@ -30,21 +30,30 @@ public class ResponseResult<T> implements Serializable {
         this.data = data;
     }
 
+    public ResponseResult(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
     public ResponseResult(Integer code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public ResponseResult(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
     public static ResponseResult errorResult(int code, String msg) {
         ResponseResult result = new ResponseResult();
         return result.error(code, msg);
     }
+
+    public static ResponseResult errorResult(AppHttpCodeEnum enums){
+        return setAppHttpCodeEnum(enums,enums.getMsg());
+    }
+
+    public static ResponseResult errorResult(AppHttpCodeEnum enums, String msg){
+        return setAppHttpCodeEnum(enums,msg);
+    }
+
     public static ResponseResult okResult() {
         ResponseResult result = new ResponseResult();
         return result;
@@ -65,14 +74,6 @@ public class ResponseResult<T> implements Serializable {
             result.setData(data);
         }
         return result;
-    }
-
-    public static ResponseResult errorResult(AppHttpCodeEnum enums){
-        return setAppHttpCodeEnum(enums,enums.getMsg());
-    }
-
-    public static ResponseResult errorResult(AppHttpCodeEnum enums, String msg){
-        return setAppHttpCodeEnum(enums,msg);
     }
 
     public static ResponseResult setAppHttpCodeEnum(AppHttpCodeEnum enums){

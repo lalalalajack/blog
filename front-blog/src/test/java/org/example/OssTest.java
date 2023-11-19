@@ -18,7 +18,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 @SpringBootTest(classes = FrontBlogApplication.class)
-@Component public class OssTest {
+@Component
+public class OssTest {
 
     private String accessKey;
     private String secretKey;
@@ -47,7 +48,6 @@ import java.io.InputStream;
     public void setBucket(String bucket) {
         this.bucket = bucket;
     }
-
 
 
     @Test
@@ -91,6 +91,7 @@ import java.io.InputStream;
             }
         } catch (Exception ex) {
             //ignore
+            ex.printStackTrace();
         }
 
     }

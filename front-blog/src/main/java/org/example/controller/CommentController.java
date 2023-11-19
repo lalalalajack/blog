@@ -29,6 +29,11 @@ public class CommentController {
      */
     @GetMapping("/commentList")
     @ApiOperation(value = "查询文章评论",notes = "获取一页文章评论")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "articleId", value = "文章号"),
+            @ApiImplicitParam(name = "pageNum", value = "页号"),
+            @ApiImplicitParam(name = "pageSize", value = "每页大小")
+    })
     public ResponseResult commentList(Long articleId, Integer pageNum, Integer pageSize){
         return commentService.commentList(SystemConstants.ARTICLE_COMMENT,articleId,pageNum,pageSize);
     }
@@ -53,7 +58,7 @@ public class CommentController {
 
     /**
      * 发表评论
-     * @param comment 评论内容
+     * @param
      * @return
      */
     @PostMapping

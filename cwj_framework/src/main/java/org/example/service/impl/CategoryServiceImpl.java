@@ -44,10 +44,10 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
         //查询文章表，状态为已发布的文章
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);
-        List<Article> articleListlist = articleService.list(queryWrapper);
+        List<Article> articleList = articleService.list(queryWrapper);
         //获取文章的分类id，并且去重 (使用函数式编程）
-        Set<Long> categoryIds  = articleListlist.stream()
-                .map(article -> article.getCategoryId())
+        Set<Long> categoryIds  = articleList.stream()
+                .map(Article::getCategoryId)
                 .collect(Collectors.toSet());
         //查询分类表
         List<Category> categories = listByIds(categoryIds);

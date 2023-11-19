@@ -1,5 +1,6 @@
 package org.example.job;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import org.example.domain.entity.Article;
 import org.example.service.ArticleService;
 import org.example.utils.RedisCache;
@@ -29,8 +30,8 @@ public class UpdateViewCountJob {
      * 每隔5秒钟
      * 0/5 * * * * ?
      */
-    @Scheduled(cron = "0 0/5 * * * ?")
-    public void updateViewCount(){
+    @Scheduled(cron = "0/60 * * * * ?")
+    public void updateViewCount() {
         //获取redis中的浏览量
         Map<String, Integer> viewCountMap = redisCache.getCacheMap("article:viewCount");
         //双列集合不能直接进行流处理，必须先转化为单列集合，比如entrySet
@@ -39,7 +40,13 @@ public class UpdateViewCountJob {
                 .map(entry -> new Article(Long.valueOf(entry.getKey()), entry.getValue().longValue()))
                 .collect(Collectors.toList());
         //更新到数据库中
-        articleService.updateBatchById(articles);
+        //articleService.updateBatchById(articles);
+        for (Article article : articles) {
+            LambdaUpdateWrapper<Article> updateWrapper = new LambdaUpdateWrapper<>();
+            updateWrapper.eq(Article::getId,article.getId());
+            updateWrapper.set(Article::getViewCount,article.getViewCount());
+            articleService.update(updateWrapper);
+        }
 
     }
 }

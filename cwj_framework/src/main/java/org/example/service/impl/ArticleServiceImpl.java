@@ -109,10 +109,22 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         List<Article> articles = iPage.getRecords();
 
         //从redis中获取viewCount
-        for (Article article : articles) {
-            Integer viewCount = redisCache.getCacheMapValue("article:viewCount", article.getId().toString());
-            article.setViewCount(Long.valueOf(viewCount));
-        }
+        //方法一，for循环写法
+//        for (Article article : articles) {
+//            Integer viewCount = redisCache.getCacheMapValue("article:viewCount", article.getId().toString());
+//            article.setViewCount(Long.valueOf(viewCount));
+//        }
+
+        //方法二，stream流写法,错误
+//        articles.stream()
+//                .map(article -> article.setViewCount(Long.valueOf(redisCache.getCacheMapValue("article:viewCount", String.valueOf(article.getId())))))
+//                .collect(Collectors.toList());
+        articles.stream()
+                .forEach(article -> {
+                    Integer viewCount = redisCache.getCacheMapValue("article:viewCount", article.getId().toString());
+                    article.setViewCount(Long.valueOf(viewCount));
+                });
+
 
 
         //查询categoryName
@@ -243,7 +255,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 
         //删除原有的 标签和博客的关联
         LambdaQueryWrapper<ArticleTag> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(ArticleTag::getArticleId,article.getId());
+        queryWrapper.eq(ArticleTag::getArticleId, article.getId());
         articleTagService.remove(queryWrapper);
 
         //添加新的博客和标签的关联信息

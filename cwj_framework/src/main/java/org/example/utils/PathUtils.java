@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * 给上传图片使用的路径工具类
+ */
 public class PathUtils {
     public static String generateFilePath(String fileName){
         //根据日期生成路径   2022/1/15/
