@@ -134,10 +134,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
 //            article.setCategoryName(category.getName());
 //        }
         //方法二：stream流 获取分类id,查询分类信息，获取分类名称,把分类名称设置给article
+//        articles.stream()
+//                .map(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName()))
+//                .collect(Collectors.toList());
         articles.stream()
-                .map(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName()))
-                .collect(Collectors.toList());
-
+                .forEach(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName()));
 
         //封装查询结果
         List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(iPage.getRecords(), ArticleListVo.class);
